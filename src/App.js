@@ -1,22 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
+import InputText from './elementos/InputText';
+import ButtonSum from './elementos/ButtonSum';
 
 function App() {
+  const [clientId,setClienteId]=useState("");
+  const [clientSecret,setClienteSecret]=useState("");
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <InputText titulo="Cliente ID" valor={clientId} funcionSet={setClienteId} />
+        <InputText titulo="Client Secret" valor={clientSecret} funcionSet={setClienteSecret} />
+        <ButtonSum cid={clientId} csec={clientSecret}/>
       </header>
     </div>
   );
